@@ -10,12 +10,14 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-const app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', es6Renderer);
 app.set('view engine', 'html');
+
+app.get('/', function(req, res) {
+  res.render('index', {locals: {title: 'Welcome!'}});
+});
 
 app.use(logger('dev'));
 app.use(express.json());
