@@ -5,4 +5,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-
+  p Mumbo hopes this works.
+  
+  :javascript 
+    | db.any("SELECT * FROM restaurant WHERE stars = 5;").then(function(response){
+    |console.log(response);
+    | })

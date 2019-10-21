@@ -1,5 +1,7 @@
 const createError = require('http-errors');
-const express = require('express');
+const express = require('express'),
+  es6Renderer = require('express-es6-template-engine'),
+  app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -12,7 +14,8 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('html', es6Renderer);
+app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
