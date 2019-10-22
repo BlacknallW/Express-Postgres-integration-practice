@@ -12,14 +12,16 @@ class RestaurantList{
         this.doestakeout = doestakeout;
         this.lastvisit = lastvisit;
     }
-    get getAll(){
-        db.any('SELECT * FROM restaurant;').then(response => {
-            console.log(response)
-        })
+    static async getAll(){
+        try{ 
+            const response = await db.any('SELECT * FROM restaurant');
+            return response;
+        } catch(err) {
+            return err.message
+        }
     };
 }
 
 
 
-module.exports = RestaurantList;
-
+module.exports = RestaurantList

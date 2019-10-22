@@ -1,0 +1,25 @@
+<h4>Favorite Restaurants</h4>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Distance</td>
+            <td>Stars</td>
+            <td>Category</td>
+            <td>Fav. Dish</td>
+            <td>Takeout?</td>
+            <td>Last Visit</td>
+        </tr>
+    </thead>
+    ${RestaurantList.map(restaurants => 
+        `<tr>
+        <td>${restaurants.restname}</td>
+        <td>${restaurants.distance}</td>
+        <td>${restaurants.stars}</td>
+        <td>${restaurants.category}</td>
+        <td>${restaurants.favoritedish}</td>
+        <td>${restaurants.doestakeout}</td>
+        <td>${restaurants.lastvisit}</td>
+        </tr>`
+        ).join('')}
+</table>
